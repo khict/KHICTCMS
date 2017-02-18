@@ -14,7 +14,11 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return view('menu.index');
+    	$menus = Menu::where('IsDelete','=',0)
+		    	->select('MnuID','MnuName','MnuParrent','MnuDesc')
+		    	->get();
+    	
+        return view('menu.index')->with('menus',$menus);
     }
 
     /**
@@ -61,6 +65,7 @@ class MenuController extends Controller
     public function show($id)
     {
         //
+        return $id;
     }
 
     /**
@@ -72,6 +77,7 @@ class MenuController extends Controller
     public function edit($id)
     {
         //
+        return 'edit';
     }
 
     /**
@@ -95,5 +101,6 @@ class MenuController extends Controller
     public function destroy($id)
     {
         //
+        return 'Hi delete';
     }
 }

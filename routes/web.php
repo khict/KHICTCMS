@@ -14,12 +14,8 @@
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/menu', function () {
-	return view('menu.menu');
-});
-Route::get('create', function () {
-	return view('menu.create');
-});
+
+
 //Auth::routes();
 
 //Route::get('/home', 'HomeController@index');

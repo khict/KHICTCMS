@@ -14,7 +14,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
+        return view('menu.index');
     }
 
     /**
@@ -24,7 +24,10 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+    	$menus = Menu::where('IsDelete','=',0)
+    			->select('MnuID','MnuName')
+    			->get();
+        return view('menu.create')->with('parents',$menus);
     }
 
     /**
@@ -37,9 +40,14 @@ class MenuController extends Controller
     {
        $menu = new Menu();
        if(isset($request['save'])){
-       	$menu->MnuName = $request['menu-name'];
-       	$menu->MnuDesc = $request['menu-desc'];
-       	echo $request['menu-name'];
+	       	$menu->MnuName = $request['menu-name'];
+	       	$menu->MnuParrent = $request['menu-parent'];
+	       	$menu->MnuDesc = $request['menu-desc'];
+	       	$menu->save();
+	       
+       }
+       if(isset($request['cancel'])){
+       	return view('menu.index');
        }
        
     }

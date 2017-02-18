@@ -44,7 +44,7 @@
 					        <td>{{$menu->MnuDesc}}</td>
 					        <td>
 					        	<div>
-									<button type="button" class="btn btn-success button-height"><a href="{{url('menu/'.$menu->MnuID.'/eidt')}}"> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a></button>
+									<button type="button" class="btn btn-success button-height"><a href="{{url('menu/'.$menu->MnuID.'/edit')}}"> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a></button>
 									<button type="button" class="btn btn-info button-height"><a href="{{url('menu/'.$menu->MnuID)}}"> <span class="glyphicon glyphicon-remove text-danger" aria-hidden="true"></span> Delete</a></button>
 								</div>
 					        </td>

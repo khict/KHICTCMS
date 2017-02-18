@@ -76,8 +76,8 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        //
-        return 'edit';
+        $menus = Menu::findOrFail('$id');
+        return view('menu.edit')->with('menus',$menus);
     }
 
     /**
